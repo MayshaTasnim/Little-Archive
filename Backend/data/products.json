@@ -1,0 +1,141 @@
+[
+    {
+        "id": 1,
+        "name": "Cloud Bear",
+        "category": "notebooks",
+        "price": 70,
+        "unit": "Tk",
+        "image": "Notebook/Cloud Bear.png"
+    },
+    {
+        "id": 2,
+        "name": "Kumamoto Rabit",
+        "category": "notebooks",
+        "price": 70,
+        "unit": "Tk",
+        "image": "Notebook/Kumamoto Rabit.png"
+    },
+    {
+        "id": 3,
+        "name": "Little Dinosaur",
+        "category": "notebooks",
+        "price": 70,
+        "unit": "Tk",
+        "image": "Notebook/Little Dinosaur.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Shark Notebook",
+        "category": "notebooks",
+        "price": 70,
+        "unit": "Tk",
+        "image": "Notebook/Shark Notebook.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Spring Peach painting",
+        "category": "notebooks",
+        "price": 70,
+        "unit": "Tk",
+        "image": "Notebook/Spring Peach painting.png"
+    },
+
+    {
+        "id": 6,
+        "name": "Cute Cartoon",
+        "category": "stickers",
+        "price": 120,
+        "unit": "Tk set",
+        "image": "Sticker/Cute Cartoon.png"
+    },
+    {
+        "id": 7,
+        "name": "Floating Life fun",
+        "category": "stickers",
+        "price": 120,
+        "unit": "Tk set",
+        "image": "Sticker/Floating Life fun.png"
+    },
+    {
+        "id": 8,
+        "name": "Retro Journal",
+        "category": "stickers",
+        "price": 120,
+        "unit": "Tk set",
+        "image": "Sticker/Retro Journal.png"
+    },
+
+    {
+        "id": 9,
+        "name": "Bluberry Cheese",
+        "category": "sticky-notes",
+        "price": 80,
+        "unit": "Tk",
+        "image": "Sticky Notes/3 in 1 stickynotes/Bluberry Cheese.png"
+    },
+    {
+        "id": 10,
+        "name": "Highland Barley Bear",
+        "category": "sticky-notes",
+        "price": 80,
+        "unit": "Tk",
+        "image": "Sticky Notes/3 in 1 stickynotes/Highland Barley Bear.png"
+    },
+    {
+        "id": 11,
+        "name": "Perfect Rabbit",
+        "category": "sticky-notes",
+        "price": 80,
+        "unit": "Tk",
+        "image": "Sticky Notes/3 in 1 stickynotes/Perfect Rabbit.png"
+    },
+    {
+        "id": 12,
+        "name": "Stupid Strawberry meaw",
+        "category": "sticky-notes",
+        "price": 80,
+        "unit": "Tk",
+        "image": "Sticky Notes/3 in 1 stickynotes/Stupid Strawberry meaw.png"
+    },
+    {
+        "id": 13,
+        "name": "Coffee Latte",
+        "category": "sticky-notes",
+        "price": 70,
+        "unit": "Tk",
+        "image": "Sticky Notes/Coffee Latte.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Ice-Cream Coffee",
+        "category": "sticky-notes",
+        "price": 70,
+        "unit": "Tk",
+        "image": "Sticky Notes/Ice-Cream Coffee.png"
+    },
+    {
+        "id": 15,
+        "name": "Milk Boba Icecream",
+        "category": "sticky-notes",
+        "price": 70,
+        "unit": "Tk",
+        "image": "Sticky Notes/Milk Boba Icecream.png"
+    },
+    {
+        "id": 16,
+        "name": "Qingtian Coffee Latte",
+        "category": "sticky-notes",
+        "price": 70,
+        "unit": "Tk",
+        "image": "Sticky Notes/Qingtian Coffee Latte.jpg"
+    },
+
+    {
+        "id": 17,
+        "name": "Washi Tape",
+        "category": "washi-tape",
+        "price": 30,
+        "unit": "Tk",
+        "image": "Washi Tape/Washi Tape.png"
+    }
+]
