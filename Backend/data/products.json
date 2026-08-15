@@ -39,7 +39,6 @@
         "unit": "Tk",
         "image": "Notebook/Spring Peach painting.png"
     },
-
     {
         "id": 6,
         "name": "Cute Cartoon",
@@ -64,7 +63,6 @@
         "unit": "Tk set",
         "image": "Sticker/Retro Journal.png"
     },
-
     {
         "id": 9,
         "name": "Bluberry Cheese",
@@ -129,7 +127,6 @@
         "unit": "Tk",
         "image": "Sticky Notes/Qingtian Coffee Latte.jpg"
     },
-
     {
         "id": 17,
         "name": "Washi Tape",

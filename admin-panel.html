@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Panel | Little Archive</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <!-- Main CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= ADMIN HEADER ================= -->
+
+    <header class="admin-header">
+
+        <div class="admin-brand">
+
+            <img
+                src="logo.png"
+                alt="Little Archive"
+            >
+
+            <span>
+                Admin Panel
+            </span>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="admin-logout-btn"
+            id="admin-logout-btn"
+        >
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </button>
+
+    </header>
+
+
+
+    <!-- ================= ADMIN MAIN ================= -->
+
+    <main class="admin-panel">
+
+
+        <!-- Welcome -->
+
+        <section class="admin-welcome">
+
+            <p>
+                LITTLE ARCHIVE
+            </p>
+
+            <h1>
+                Admin Dashboard
+            </h1>
+
+            <p id="admin-welcome-message">
+                Welcome, Admin.
+            </p>
+
+        </section>
+
+
+
+        <!-- ================= DASHBOARD CARDS ================= -->
+
+        <section class="admin-dashboard-grid">
+
+
+            <!-- Products -->
+
+            <a
+                href="admin-products.html"
+                class="admin-dashboard-card"
+            >
+
+                <div class="admin-card-icon">
+
+                    <i class="fa-solid fa-box-open"></i>
+
+                </div>
+
+                <div>
+
+                    <h2>
+                        Products
+                    </h2>
+
+                    <p>
+                        Manage your products
+                    </p>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- Orders -->
+
+            <a
+                href="admin-orders.html"
+                class="admin-dashboard-card"
+            >
+
+                <div class="admin-card-icon">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                </div>
+
+                <div>
+
+                    <h2>
+                        Orders
+                    </h2>
+
+                    <p>
+                        View customer orders
+                    </p>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- Users -->
+
+            <a
+                href="admin-users.html"
+                class="admin-dashboard-card"
+            >
+
+                <div class="admin-card-icon">
+
+                    <i class="fa-solid fa-users"></i>
+
+                </div>
+
+                <div>
+
+                    <h2>
+                        Users
+                    </h2>
+
+                    <p>
+                        Manage registered users
+                    </p>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- Store -->
+
+            <a
+                href="index.html"
+                class="admin-dashboard-card"
+            >
+
+                <div class="admin-card-icon">
+
+                    <i class="fa-solid fa-store"></i>
+
+                </div>
+
+                <div>
+
+                    <h2>
+                        View Store
+                    </h2>
+
+                    <p>
+                        Go to Little Archive
+                    </p>
+
+                </div>
+
+            </a>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= ADMIN JAVASCRIPT ================= -->
+
+    <script src="admin-panel.js"></script>
+
+
+</body>
+
+</html>

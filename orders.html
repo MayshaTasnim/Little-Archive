@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Orders | Little Archive</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <a href="index.html">
+
+                <img
+                    src="logo.png"
+                    alt="Little Archive"
+                >
+
+            </a>
+
+        </div>
+
+
+        <nav class="navbar">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="cart.html">
+                Cart
+            </a>
+
+            <a href="orders.html">
+                My Orders
+            </a>
+
+        </nav>
+
+
+        <div class="header-icons">
+
+            <a
+                href="cart.html"
+                class="header-icon cart-icon"
+                aria-label="Shopping Cart"
+            >
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span id="cart-count">
+                    0
+                </span>
+
+            </a>
+
+
+            <a
+                href="orders.html"
+                class="header-icon"
+                aria-label="My Orders"
+            >
+
+                <i class="fa-solid fa-box"></i>
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= ORDERS PAGE ================= -->
+
+    <main class="orders-page">
+
+
+        <section class="orders-heading">
+
+            <p class="orders-small-title">
+                LITTLE ARCHIVE
+            </p>
+
+            <h1>
+                My Orders
+            </h1>
+
+            <p>
+                Keep track of your Little Archive purchases.
+            </p>
+
+        </section>
+
+
+        <section
+            class="orders-container"
+            id="orders-container"
+        >
+
+            <p class="orders-loading">
+                Loading your orders...
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+
+            <img
+                src="logo.png"
+                alt="Little Archive"
+            >
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <h2>
+                Contacts
+            </h2>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+
+    <!-- ================= LOAD ORDERS ================= -->
+
+    <script>
+
+        function loadOrders() {
+
+            const ordersContainer =
+                document.getElementById(
+                    "orders-container"
+                );
+
+
+            const savedUser =
+                JSON.parse(
+                    localStorage.getItem(
+                        "littleArchiveUser"
+                    )
+                );
+
+
+            const allOrders =
+                JSON.parse(
+                    localStorage.getItem(
+                        "littleArchiveOrders"
+                    )
+                ) || [];
+
+
+            let orders =
+                allOrders;
+
+
+            /*
+             * If a user is logged in,
+             * show only that user's orders.
+             */
+
+            if (
+                savedUser &&
+                savedUser.email
+            ) {
+
+                orders =
+                    allOrders.filter(
+                        function(order) {
+
+                            return (
+                                order.userEmail ===
+                                savedUser.email
+                            );
+
+                        }
+                    );
+
+            }
+
+
+            /*
+             * No orders
+             */
+
+            if (orders.length === 0) {
+
+                ordersContainer.innerHTML = `
+
+                    <div class="no-orders">
+
+                        <i class="fa-solid fa-box-open"></i>
+
+                        <h2>
+                            No orders yet
+                        </h2>
+
+                        <p>
+                            You haven't placed any orders yet.
+                        </p>
+
+                        <a
+                            href="index.html"
+                            class="orders-shop-btn"
+                        >
+                            Start Shopping
+                        </a>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            /*
+             * Display newest orders first
+             */
+
+            orders.reverse();
+
+
+            ordersContainer.innerHTML =
+                orders.map(
+                    function(order) {
+
+                        const itemsHTML =
+                            order.items.map(
+                                function(item) {
+
+                                    return `
+
+                                        <div
+                                            class="order-item"
+                                        >
+
+                                            <img
+                                                src="${item.image}"
+                                                alt="${item.name}"
+                                            >
+
+                                            <div
+                                                class="order-item-info"
+                                            >
+
+                                                <h3>
+                                                    ${item.name}
+                                                </h3>
+
+                                                <p>
+                                                    Quantity:
+                                                    ${item.quantity}
+                                                </p>
+
+                                                <p>
+                                                    ৳${item.price}
+                                                    each
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+
+                                    `;
+
+                                }
+                            ).join("");
+
+
+                        return `
+
+                            <article
+                                class="order-card"
+                            >
+
+                                <div
+                                    class="order-header"
+                                >
+
+                                    <div>
+
+                                        <h2>
+                                            Order
+                                            ${order.orderId}
+                                        </h2>
+
+                                        <p>
+                                            ${order.date}
+                                        </p>
+
+                                    </div>
+
+
+                                    <span
+                                        class="order-status"
+                                    >
+                                        ${order.status}
+                                    </span>
+
+                                </div>
+
+
+                                <div
+                                    class="order-items"
+                                >
+
+                                    ${itemsHTML}
+
+                                </div>
+
+
+                                <div
+                                    class="order-details"
+                                >
+
+                                    <p>
+                                        <strong>
+                                            Payment:
+                                        </strong>
+
+                                        ${order.paymentMethod}
+                                    </p>
+
+                                    <p>
+                                        <strong>
+                                            Delivery:
+                                        </strong>
+
+                                        ${order.address}
+                                    </p>
+
+                                    <p>
+                                        <strong>
+                                            Phone:
+                                        </strong>
+
+                                        ${order.phone}
+                                    </p>
+
+                                </div>
+
+
+                                <div
+                                    class="order-total"
+                                >
+
+                                    <span>
+                                        Total
+                                    </span>
+
+                                    <strong>
+                                        ৳${order.total}
+                                    </strong>
+
+                                </div>
+
+                            </article>
+
+                        `;
+
+                    }
+                ).join("");
+
+        }
+
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+
+                loadOrders();
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

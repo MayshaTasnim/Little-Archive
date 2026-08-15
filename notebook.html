@@ -333,17 +333,28 @@
 
                             <!-- FAVOURITE BUTTON -->
 
-                            <button
-                                class="favourite-btn"
-                                type="button"
-                                data-product-id="${product.id}"
-                                aria-label="Add ${product.name} to favourites"
-                            >
+                        <button 
+                        class="favourite-btn" 
+                        type="button" 
+                        data-product-id="${product.id}" 
+                        aria-label="Add ${product.name} to favourites"
+                        > 
 
-                                <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-heart"></i>
 
-                            </button>
+                        </button>
 
+
+                        <!-- ADD TO CART BUTTON -->
+
+                        <button
+                        class="add-to-cart-btn"
+                        type="button"
+                        data-product-id="${product.id}"
+                        aria-label="Add ${product.name} to cart"
+                        >
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
                         </div>
 
                     `;

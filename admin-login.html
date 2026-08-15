@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Login | Little Archive</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <!-- Main CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= ADMIN LOGIN ================= -->
+
+    <main class="admin-login-page">
+
+
+        <section class="admin-login-card">
+
+
+            <div class="admin-login-icon">
+
+                <i class="fa-solid fa-user-shield"></i>
+
+            </div>
+
+
+            <p class="admin-small-title">
+                LITTLE ARCHIVE
+            </p>
+
+
+            <h1>
+                Admin Login
+            </h1>
+
+
+            <p class="admin-login-subtitle">
+                Sign in to access the admin panel.
+            </p>
+
+
+            <form id="admin-login-form">
+
+
+                <!-- Email -->
+
+                <div class="admin-form-group">
+
+                    <label for="admin-email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="admin-email"
+                        placeholder="Admin email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Password -->
+
+                <div class="admin-form-group">
+
+                    <label for="admin-password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="admin-password"
+                        placeholder="Admin password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Login Button -->
+
+                <button
+                    type="submit"
+                    class="admin-login-btn"
+                >
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Login
+
+                </button>
+
+
+                <!-- Message -->
+
+                <p
+                    id="admin-login-message"
+                    class="admin-login-message"
+                ></p>
+
+
+            </form>
+
+
+            <a
+                href="index.html"
+                class="admin-back-link"
+            >
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Little Archive
+
+            </a>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= ADMIN LOGIN JAVASCRIPT ================= -->
+
+    <script src="admin-login.js"></script>
+
+
+</body>
+
+</html>

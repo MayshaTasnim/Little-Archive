@@ -482,3 +482,543 @@ if (searchInput) {
     );
 
 }
+// ======================================================
+// ===================== CART ============================
+// ======================================================
+
+// Load saved cart
+let cart = JSON.parse(
+    localStorage.getItem("littleArchiveCart")
+) || [];
+
+
+// Save cart
+function saveCart() {
+
+    localStorage.setItem(
+        "littleArchiveCart",
+        JSON.stringify(cart)
+    );
+
+}
+// ======================================================
+// ================= UPDATE CART COUNT ==================
+// ======================================================
+
+function updateCartCount() {
+
+    const cartCount =
+        document.getElementById("cart-count");
+
+    if (!cartCount) {
+        return;
+    }
+
+
+    let totalItems = 0;
+
+    cart.forEach(item => {
+
+        totalItems += item.quantity;
+
+    });
+
+
+    cartCount.textContent = totalItems;
+
+}
+
+// ======================================================
+// ================= ADD TO CART ========================
+// ======================================================
+
+document.addEventListener(
+    "click",
+    async function(event) {
+
+        const button =
+            event.target.closest(".add-to-cart-btn");
+
+        if (!button) {
+            return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+
+
+        const productId =
+            String(button.dataset.productId);
+
+        if (!productId) {
+            return;
+        }
+
+
+        try {
+
+            // Get product information from backend
+            const response = await fetch(
+                "http://localhost:3000/api/products"
+            );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Unable to load products"
+                );
+
+            }
+
+
+            const products =
+                await response.json();
+
+
+            // Find clicked product
+            const product =
+                products.find(
+                    item =>
+                        String(item.id) === productId
+                );
+
+
+            if (!product) {
+
+                console.error(
+                    "Product not found:",
+                    productId
+                );
+
+                return;
+
+            }
+
+
+            // Check if product is already in cart
+            const existingItem =
+                cart.find(
+                    item =>
+                        String(item.id) === productId
+                );
+
+
+            if (existingItem) {
+
+                // Product already exists → increase quantity
+                existingItem.quantity += 1;
+
+            } else {
+
+                // Add new product
+                cart.push({
+
+                    id: product.id,
+
+                    name: product.name,
+
+                    price: product.price,
+
+                    image: product.image,
+
+                    quantity: 1
+
+                });
+
+            }
+
+
+            // Save updated cart
+            saveCart();
+
+
+            // Update 🛒 number in header
+            updateCartCount();
+
+
+            // Show ✓ temporarily
+            button.innerHTML =
+                '<i class="fa-solid fa-check"></i>';
+
+
+            setTimeout(function() {
+
+                button.innerHTML =
+                    '<i class="fa-solid fa-cart-shopping"></i>';
+
+            }, 1000);
+
+
+            console.log(
+                "Cart:",
+                cart
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Add to cart error:",
+                error
+            );
+
+        }
+
+    }
+);
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        updateCartCount();
+
+    }
+);
+// ======================================================
+// ================= CHECKOUT ============================
+// ======================================================
+
+const checkoutForm =
+    document.getElementById("checkout-form");
+
+const checkoutMessage =
+    document.getElementById("checkout-message");
+
+
+if (checkoutForm) {
+
+    checkoutForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document
+                    .getElementById("customer-name")
+                    .value
+                    .trim();
+
+
+            const phone =
+                document
+                    .getElementById("customer-phone")
+                    .value
+                    .trim();
+
+
+            const address =
+                document
+                    .getElementById("customer-address")
+                    .value
+                    .trim();
+
+
+            const paymentElement =
+                document.querySelector(
+                    'input[name="payment"]:checked'
+                );
+
+
+            if (!name || !phone || !address) {
+
+                checkoutMessage.textContent =
+                    "Please fill in all delivery information.";
+
+                return;
+
+            }
+
+
+            if (!paymentElement) {
+
+                checkoutMessage.textContent =
+                    "Please select a payment method.";
+
+                return;
+
+            }
+
+
+            if (cart.length === 0) {
+
+                checkoutMessage.textContent =
+                    "Your cart is empty.";
+
+                return;
+
+            }
+
+
+            const payment =
+                paymentElement.value;
+
+
+            console.log("Order placed:", {
+
+                customerName: name,
+
+                phone: phone,
+
+                address: address,
+
+                paymentMethod: payment,
+
+                items: cart
+
+            });
+
+
+            checkoutMessage.textContent =
+                "Order placed successfully! 🎉";
+
+
+            checkoutMessage.style.color =
+                "#6b8e23";
+
+
+           setTimeout(function() {
+
+    const savedUser =
+        JSON.parse(
+            localStorage.getItem("littleArchiveUser")
+        ) || null;
+        // Admin Panel button
+const adminPanelBtn =
+    document.getElementById(
+        "admin-panel-btn"
+    );
+
+
+if (adminPanelBtn) {
+
+    if (
+        savedUser &&
+        savedUser.role === "admin"
+    ) {
+
+        adminPanelBtn.style.display =
+            "inline-flex";
+
+    } else {
+
+        adminPanelBtn.style.display =
+            "none";
+
+    }
+
+}
+
+    const orderTotal =
+        cart.reduce(function(total, item) {
+
+            return total +
+                (Number(item.price) * Number(item.quantity));
+
+        }, 0);
+
+
+    const newOrder = {
+
+        orderId:
+            "LA-" + Date.now(),
+
+        date:
+            new Date().toLocaleString(),
+
+        userEmail:
+            savedUser && savedUser.email
+                ? savedUser.email
+                : "guest",
+
+        customerName:
+            name,
+
+        phone:
+            phone,
+
+        address:
+            address,
+
+        paymentMethod:
+            payment,
+
+        items:
+            cart.map(function(item) {
+
+                return {
+
+                    id: item.id,
+
+                    name: item.name,
+
+                    price: item.price,
+
+                    image: item.image,
+
+                    quantity: item.quantity
+
+                };
+
+            }),
+
+        total:
+            orderTotal,
+
+        status:
+            "Order Placed"
+
+    };
+
+
+    // Save order to backend
+fetch(
+    "http://localhost:3000/api/orders",
+    {
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+
+            userId:
+                savedUser && savedUser.id
+                    ? savedUser.id
+                    : "guest",
+
+            customerName:
+                newOrder.customerName,
+
+            customerEmail:
+                newOrder.userEmail,
+
+            items:
+                newOrder.items,
+
+            total:
+                newOrder.total,
+
+            shippingAddress:
+                newOrder.address
+
+        })
+
+    }
+)
+.then(function(response) {
+
+    return response.json();
+
+})
+.then(function(data) {
+
+    if (!data || !data.order) {
+
+        throw new Error(
+            "Order was not saved."
+        );
+
+    }
+
+
+    // Order successfully saved
+    localStorage.removeItem(
+        "littleArchiveCart"
+    );
+
+
+    // Keep local order history
+    const orders =
+        JSON.parse(
+            localStorage.getItem(
+                "littleArchiveOrders"
+            )
+        ) || [];
+
+
+    orders.push(newOrder);
+
+
+    localStorage.setItem(
+        "littleArchiveOrders",
+        JSON.stringify(orders)
+    );
+
+
+    // Go back to homepage
+    window.location.href =
+        "index.html";
+
+})
+.catch(function(error) {
+
+    console.error(
+        "Order saving error:",
+        error
+    );
+
+
+    alert(
+        "Your order could not be saved. Please try again."
+    );
+
+});
+
+}, 2000);
+        }
+    );
+
+}
+// ======================================================
+// ================= PROFILE ICON ========================
+// ======================================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        const profileButton =
+            document.querySelector(".profile-btn");
+
+
+        if (!profileButton) {
+            return;
+        }
+
+
+        profileButton.addEventListener(
+            "click",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const loggedInUser =
+                    localStorage.getItem(
+                        "littleArchiveUser"
+                    );
+
+
+                if (loggedInUser) {
+
+                    // Logged in → Profile page
+                    window.location.href =
+                        "profile.html";
+
+                } else {
+
+                    // Not logged in → Login page
+                    window.location.href =
+                        "login.html";
+
+                }
+
+            }
+        );
+
+    }
+);

@@ -44,58 +44,97 @@
 
     <!-- ================= HEADER ================= -->
 
-    <header class="header">
+<header class="header">
 
-        <!-- Logo -->
-        <div class="logo">
+    <!-- Logo -->
+    <div class="logo">
+        <a href="index.html">
             <img src="logo.png" alt="Little Archive">
-        </div>
+        </a>
+    </div>
 
 
-        <!-- Navigation -->
-        <nav class="navbar">
+    <!-- Navigation -->
+    <nav class="navbar">
 
-            <a href="#">Home</a>
+        <a href="index.html">Home</a>
 
-            <a href="#">Products</a>
+        <a href="#">Products</a>
 
-            <a href="#">Category</a>
+        <a href="#">Category</a>
 
-            <a href="#">About Us</a>
+        <a href="#">About Us</a>
 
-        </nav>
+    </nav>
 
 
-        <!-- Header Icons -->
-         <div class="header-icons">
+    <!-- Header Icons -->
+    <div class="header-icons">
 
-    <button
-        class="search-btn"
-        type="button"
-        aria-label="Search"
-    >
-        <i class="fa-solid fa-magnifying-glass"></i>
-    </button>
+        <!-- Search -->
+        <button
+            class="search-btn"
+            type="button"
+            aria-label="Search"
+        >
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
 
-    <button
-        class="profile-btn"
-        type="button"
-        aria-label="Profile"
-    >
-        👤
-    </button>
 
-    <button
-        class="menu-btn"
-        type="button"
-        aria-label="Menu"
-    >
-        ☰
-    </button>
+        <!-- Favourites -->
+        <a
+            href="#"
+            class="header-icon"
+            aria-label="Favourites"
+        >
+            <i class="fa-regular fa-heart"></i>
+        </a>
 
-</div>
 
-    </header>
+        <!-- Cart -->
+        <a 
+        href="cart.html" 
+        class="header-icon cart-header-icon" 
+        aria-label="Shopping Cart"
+        >
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <span id="cart-count" class="cart-count">
+        0
+        </span>
+        </a>
+
+
+    <!-- Profile -->
+<a
+    href="profile.html"
+    class="profile-btn"
+    aria-label="Profile"
+>
+    👤
+</a>
+<!-- Admin Panel -->
+<a
+    href="admin-panel.html"
+    class="admin-btn"
+    id="admin-panel-btn"
+    aria-label="Admin Panel"
+>
+    ⚙️
+</a>
+
+        <!-- Menu -->
+        <button
+            class="menu-btn"
+            type="button"
+            aria-label="Menu"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</header>
     <!-- ================= SEARCH ================= -->
 
     <div class="search-container" id="search-container">

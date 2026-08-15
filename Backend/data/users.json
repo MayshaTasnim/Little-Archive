@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1786732129950,
+        "name": "Maysha",
+        "email": "maysha@gmail.com",
+        "password": "maysha1234",
+        "role": "user"
+    },
+    {
+        "id": 1786732373049,
+        "name": "Iftekher Islam",
+        "email": "romanifte@gmail.com",
+        "password": "roman1234",
+        "role": "user"
+    },
+    {
+        "id": 1786733871022,
+        "name": "Maysha Tasnim",
+        "email": "tasnim@gmail.com",
+        "password": "tasnim123",
+        "role": "user"
+    },
+    {
+        "id": 1786733960171,
+        "name": "Moein",
+        "email": "rahman@gmail.com",
+        "password": "moein123",
+        "role": "user"
+    },
+    {
+        "id": 1786734000000,
+        "name": "Little Archive Admin",
+        "email": "admin@littlearchive.com",
+        "password": "admin1234",
+        "role": "admin"
+    }
+]

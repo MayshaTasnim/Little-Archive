@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | Little Archive</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <!-- Main CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <a href="index.html">
+
+                <img src="logo.png" alt="Little Archive">
+
+            </a>
+
+        </div>
+
+
+        <nav class="navbar">
+
+            <a href="index.html">Home</a>
+
+            <a href="notebook.html">Products</a>
+
+            <a href="index.html">About</a>
+
+        </nav>
+
+
+        <div class="header-icons">
+
+            <!-- Cart -->
+
+            <a
+                href="cart.html"
+                class="header-icon cart-icon"
+                aria-label="Shopping Cart"
+            >
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span id="cart-count">0</span>
+
+            </a>
+
+
+            <!-- Profile -->
+
+            <button
+                class="profile-btn"
+                type="button"
+                aria-label="Profile"
+            >
+                👤
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= CHECKOUT ================= -->
+
+    <main class="checkout-page">
+
+
+        <section class="checkout-heading">
+
+            <p class="category-small-title">
+                LITTLE ARCHIVE
+            </p>
+
+            <h1>Checkout</h1>
+
+            <p>
+                Complete your order below.
+            </p>
+
+        </section>
+
+
+
+        <div class="checkout-container">
+
+
+            <!-- ================= CUSTOMER DETAILS ================= -->
+
+            <section class="checkout-form-section">
+
+                <h2>Delivery Information</h2>
+
+
+                <form id="checkout-form">
+
+
+                    <div class="form-group">
+
+                        <label for="customer-name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customer-name"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="customer-phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="customer-phone"
+                            placeholder="01XXXXXXXXX"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="customer-address">
+                            Delivery Address
+                        </label>
+
+                        <textarea
+                            id="customer-address"
+                            rows="4"
+                            placeholder="Enter your full delivery address"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- ================= PAYMENT ================= -->
+
+                    <h2>Payment Method</h2>
+
+                    <p class="payment-note">
+                        Payment methods are simulated for this project demo.
+                    </p>
+
+
+                    <div class="payment-options">
+
+
+                        <!-- Cash -->
+
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="Cash on Delivery"
+                                checked
+                            >
+
+                            <span>
+
+                                <i class="fa-solid fa-money-bill"></i>
+
+                                Cash on Delivery
+
+                            </span>
+
+                        </label>
+
+
+
+                        <!-- Mobile Banking -->
+
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="Mobile Banking"
+                            >
+
+                            <span>
+
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+
+                                Mobile Banking
+                                <small>(Demo)</small>
+
+                            </span>
+
+                        </label>
+
+
+
+                        <!-- Card -->
+
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="Card"
+                            >
+
+                            <span>
+
+                                <i class="fa-solid fa-credit-card"></i>
+
+                                Card Payment
+                                <small>(Demo)</small>
+
+                            </span>
+
+                        </label>
+
+
+                    </div>
+
+
+
+                    <button
+                        type="submit"
+                        class="place-order-btn"
+                    >
+
+                        Place Order
+
+                    </button>
+
+
+                    <p
+                        id="checkout-message"
+                        class="checkout-message"
+                    ></p>
+
+
+                </form>
+
+            </section>
+
+
+
+            <!-- ================= ORDER SUMMARY ================= -->
+
+            <section class="checkout-summary">
+
+                <h2>Order Summary</h2>
+
+
+                <div
+                    id="checkout-items"
+                    class="checkout-items"
+                >
+
+                    <p>
+                        Loading your cart...
+                    </p>
+
+                </div>
+
+
+                <div class="checkout-total">
+
+                    <span>Total</span>
+
+                    <strong id="checkout-total-price">
+                        ৳0
+                    </strong>
+
+                </div>
+
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+
+            <img src="logo.png" alt="Little Archive">
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <h2>Contacts</h2>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- MAIN JAVASCRIPT -->
+
+    <script src="script.js">
+        
+    </script>
+
+
+</body>
+
+</html>
+
