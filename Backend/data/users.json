@@ -33,5 +33,40 @@
         "email": "admin@littlearchive.com",
         "password": "admin1234",
         "role": "admin"
+    },
+    {
+        "id": 1786867849463,
+        "name": "moein rahman",
+        "email": "moein@gmail.com",
+        "password": "1234",
+        "role": "user"
+    },
+    {
+        "id": 1786867902910,
+        "name": "Jihad",
+        "email": "jihad@gmail.com",
+        "password": "jid123",
+        "role": "user"
+    },
+    {
+        "id": 1786867971040,
+        "name": "Tahia",
+        "email": "tahia@gmail.com",
+        "password": "t123",
+        "role": "user"
+    },
+    {
+        "id": 1786874006177,
+        "name": "Munia",
+        "email": "mun@gmail.com",
+        "password": "mun1234",
+        "role": "user"
+    },
+    {
+        "id": 1786874072565,
+        "name": "Safa",
+        "email": "safa@gmail.com",
+        "password": "safa0987",
+        "role": "user"
     }
 ]
