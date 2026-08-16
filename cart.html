@@ -539,13 +539,13 @@
                     </div>
 
 
-                   <a
+                  <a 
     href="checkout.html"
     class="checkout-btn"
+    id="proceed-to-checkout-btn"
 >
     Proceed to Checkout
 </a>
-
                 </div>
 
             `;
@@ -702,7 +702,41 @@
         // Display when page opens
 
         displayCart();
+// ================= PROCEED TO CHECKOUT =================
 
+const proceedToCheckoutBtn =
+    document.getElementById(
+        "proceed-to-checkout-btn"
+    );
+
+
+if (proceedToCheckoutBtn) {
+
+    proceedToCheckoutBtn.addEventListener(
+        "click",
+        function(event) {
+
+            const savedUser =
+                JSON.parse(
+                    localStorage.getItem(
+                        "littleArchiveUser"
+                    )
+                ) || null;
+
+
+            if (!savedUser) {
+
+                event.preventDefault();
+
+                window.location.href =
+                    "login.html";
+
+            }
+
+        }
+    );
+
+}
     </script>
 
 
